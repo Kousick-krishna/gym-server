@@ -11,7 +11,11 @@ dotenv.config();
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+    origin : ["https://gym-client-wheat.vercel.app"],
+    methods : ["GET","POST","PUT","DELETE"],
+    credentials:true
+}));
 
 const mongoDBURL = process.env.MONGODB_URL;
 
